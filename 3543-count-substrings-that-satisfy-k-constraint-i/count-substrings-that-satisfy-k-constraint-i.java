@@ -1,0 +1,19 @@
+class Solution {
+    public int countKConstraintSubstrings(String s, int k) {
+        int one=0;
+        int zero=0;
+        int left=0;
+        int res=0;
+        for(int right=0;right<s.length();right++){
+            if(s.charAt(right)=='1') one++;
+            else zero++;
+            while(one>k && zero>k){
+                if(s.charAt(left)=='1') one--;
+                else zero--;
+                left++;
+            }
+            res+=(right-left+1);
+        }
+        return res;
+    }
+}
