@@ -5,7 +5,9 @@ class Solution {
             if(nums[Math.abs(nums[i])-1]<0){
                 l.add(Math.abs(nums[i]));
             }
-            nums[Math.abs(nums[i])-1]*=(-1);
+            else{
+                nums[Math.abs(nums[i])-1]*=(-1);
+            }
         }
         return l;
     }
