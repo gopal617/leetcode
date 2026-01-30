@@ -19,8 +19,7 @@ class Solution {
         }
         if(k%len==0) return head;
         tail.next=head;
-        k=k%len;
-        int c=len-k;
+        int c=len-(k%len);
         while(c!=0){
             if(c==1){
                break;
