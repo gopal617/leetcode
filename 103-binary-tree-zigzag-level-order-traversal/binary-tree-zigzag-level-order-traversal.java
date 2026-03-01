@@ -25,19 +25,17 @@ class Solution {
             List<Integer> level = new ArrayList<>();
             for(int i=0;i<size;i++){
                 TreeNode t = q.poll();
-                level.add(t.val);
+                if(is_left==true){
+                    level.addLast(t.val);
+                }
+                else{
+                    level.addFirst(t.val);
+                }
                 if(t.left!=null) q.add(t.left);
                 if(t.right!=null) q.add(t.right);
             }
-            if(is_left==true){
-                l.add(level);
-                is_left=false;
-            }
-            else{
-                Collections.reverse(level);
-                l.add(level);
-                is_left=true;
-            }
+            l.add(level);
+            is_left = is_left==true ? false:true;
         }
         return l;
     }
