@@ -18,13 +18,13 @@ class Solution {
     public int diameterOfBinaryTree(TreeNode root) {
         if(root==null) return 0;
         dfs(root);
-        return maxdiam-1;
+        return maxdiam;
     }
     private int dfs(TreeNode t){
         if(t==null) return 0;
         int left = Math.max(0,dfs(t.left));
         int right=Math.max(0,dfs(t.right));
-        int val= 1+left+right;
+        int val= left+right;
         maxdiam=Math.max(maxdiam,val);
         return 1+Math.max(left,right);
     }
