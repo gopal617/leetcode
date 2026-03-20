@@ -1,12 +1,12 @@
 class Solution {
     public List<List<Integer>> permuteUnique(int[] nums) {
-        List<List<Integer>> l = new ArrayList<>();
+        Set<List<Integer>> l = new HashSet<>();
         boolean[] bool = new boolean[nums.length];
         backtrack(l,nums,new ArrayList<>(),bool);
-        return l;
+        return new ArrayList<>(l);
     }
-    private void backtrack(List<List<Integer>> res ,int[] nums,ArrayList<Integer> tem,boolean[] b){
-        if(tem.size()==nums.length && (!res.contains(tem))) {
+    private void backtrack(Set<List<Integer>> res ,int[] nums,ArrayList<Integer> tem,boolean[] b){
+        if(tem.size()==nums.length ) {
             res.add(new ArrayList<>(tem));
             return;
         }
