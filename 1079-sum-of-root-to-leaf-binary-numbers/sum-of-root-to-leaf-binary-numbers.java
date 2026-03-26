@@ -23,7 +23,6 @@ class Solution {
         if(t.left==null && t.right==null){
             sb.append(t.val);
             String s= sb.toString();
-            System.out.println(s);
             sum+=Integer.parseInt(s,2);
             return;
         }
