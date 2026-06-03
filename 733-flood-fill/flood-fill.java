@@ -3,13 +3,12 @@ class Solution {
         dfs(image,sr,sc,color,image[sr][sc]);
         return image;
     }
-    private void dfs(int[][] image, int i,int j, int color,int st){
-        if(i<0 || j<0 || i>=image.length || j>=image[i].length || image[i][j]==color || image[i][j]!=st) return;
-        image[i][j]=color;
-        dfs(image,i-1,j,color,st);
-        dfs(image,i+1,j,color,st);
-        dfs(image,i,j-1,color,st);
-        dfs(image,i,j+1,color,st);
-        
+    private void dfs(int[][] im,int left,int right,int co,int st){
+        if(left<0|| right<0 || left>=im.length || right>=im[0].length || im[left][right]==co || im[left][right]!=st) return;
+        im[left][right]=co;
+        dfs(im,left+1,right,co,st);
+        dfs(im,left-1,right,co,st);
+        dfs(im,left,right+1,co,st);
+        dfs(im,left,right-1,co,st);
     }
 }
