@@ -2,14 +2,6 @@ class Solution {
     public List<List<Integer>> threeSum(int[] arr) {
         Arrays.sort(arr);
         Set<List<Integer>> l = new HashSet<>();
-        if(arr.length == 3 && arr[0]+arr[1]+arr[2]==0){
-            List<Integer> sub = new ArrayList<>();
-            sub.add(arr[0]);
-            sub.add(arr[1]);
-            sub.add(arr[2]);
-            l.add(sub);
-            return new ArrayList<>(l);
-        }
         for(int i=0;i<arr.length;i++){
             int k=arr.length-1;
             int j=i+1;
