@@ -1,16 +1,18 @@
 class Solution {
     public int majorityElement(int[] nums) {
-        Map<Integer,Integer> m = new HashMap<>();
-        for(int i : nums){
-            if(m.containsKey(i)){
-                m.put(i,m.get(i)+1);
-                if(m.get(i)>nums.length/2) return i;
+        int c=0;
+        int ca=0;
+        for(int i:nums){
+            if(c==0){
+                ca=i;
+            }
+            if(i==ca){
+                c++;
             }
             else{
-                m.put(i,1);
-                if(m.get(i)>nums.length/2) return i;
+                c--;
             }
         }
-        return -1;
+        return ca;
     }
 }
