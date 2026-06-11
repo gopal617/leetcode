@@ -1,26 +1,28 @@
 class Solution {
     public int[] productExceptSelf(int[] nums) {
+        int zeros=0;
         int product=1;
-        int[] arr = new int[nums.length];
-        Map<Integer,Integer> m = new HashMap<>();
-        for(int i=0; i<nums.length;i++){
-            if(nums[i]==0 && m.containsKey(nums[i])){
-                return arr;
-            }
-            if (nums[i]==0 && !(m.containsKey(nums[i]))){
-                m.put(nums[i],i);
+        int n=nums.length;
+        int index=0;
+        int[] products = new int[n];
+        for(int i=0;i<n;i++){
+            if(nums[i]==0){
+                zeros++;
+                index=i;
             }
             else{
                 product=product*nums[i];
             }
         }
-        if(m.containsKey(0)){
-            arr[m.get(0)]=product;
-            return arr;
+        if(zeros>1) return products;
+        if(zeros==1) {
+            products[index]=product;
+            return products;
         }
-        for(int i=0;i<nums.length;i++){
-            arr[i]=product/nums[i];
+        for(int i=0; i< n; i++){
+            products[i]=product/nums[i];
         }
-        return arr;
+        return products;
+
     }
 }
